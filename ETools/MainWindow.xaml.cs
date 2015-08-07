@@ -22,7 +22,11 @@ namespace ETools
     {
         public MainWindow()
         {
+            var splash = new SplashScreen("spalsh.png");
+            //splash.Show(false);
+            //splash.Show(true);
             InitializeComponent();
+            splash.Close(TimeSpan.FromMinutes(0.5));
         }
 
         private void AddClass_Click(object sender, RoutedEventArgs e)
