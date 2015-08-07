@@ -1,0 +1,56 @@
+﻿<Window x:Name="MainWindow1" x:Class="ETools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EToolsDesigner" Height="471" Width="1120" WindowState="Maximized">
+    <Grid>
+
+        <DockPanel LastChildFill="True" Margin="10">
+            <ToolBar DockPanel.Dock="Top" Height="44" VerticalAlignment="Top" Margin="0,0,0,0">
+                <Button x:Name="AddClass" Content="Добавить" Height="39" VerticalAlignment="Top" Click="AddClass_Click"/>
+                <Button x:Name="EditClass" Content="Редактировать" Height="39" VerticalAlignment="Top" />
+                <Button x:Name="DelClass" Content="Удалить" Height="39" VerticalAlignment="Top"/>
+            </ToolBar>
+            <StatusBar DockPanel.Dock="Bottom" Height="54" Margin="0,0,10,0" VerticalAlignment="Bottom">
+                <Label Name = "labelInfoForUser" Content="Готово!"/>
+                <TextBox Name= "txtBxCode" Width="90" IsReadOnly="True"/>
+            </StatusBar>
+            <Grid RenderTransformOrigin="0.421,0.514">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto" MinWidth="5"></ColumnDefinition>
+                    <ColumnDefinition Width="543*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TreeView Name="MyTree">
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="EToolsTreeItem" ItemsSource="{Binding eskdViews}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images/green.png" Margin="0,0,5,0" />
+                                <TextBlock Text="{Binding Description}" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.Resources>
+                </TreeView>
+                <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <InkCanvas  Name="MyInkCanvas" Width="auto" EditingMode="Ink">
+                        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Stroke="Black" VerticalAlignment="Top" Width="88" Margin="295,114,-373,-181"/>
+                        <Button Content="Button" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="42" Margin="126,120,-126,-120"/>
+                    </InkCanvas>
+                </ScrollViewer>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Label Content="Поиск:"></Label>
+                    <TextBox Name="FindTree" Width="182" Height="28" Text="" Margin="0,6" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <Label Content="Поиск:"></Label>
+                    <TextBox Name="FindList"  Width="250" Height="28" Text="" />
+                </StackPanel>
+                <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Width="5"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
