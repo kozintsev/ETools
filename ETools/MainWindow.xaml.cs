@@ -33,5 +33,10 @@ namespace ETools
         {
 
         }
+
+        private void MyTree_Selected_Item(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

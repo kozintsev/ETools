@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="auto" MinWidth="5"></ColumnDefinition>
                     <ColumnDefinition Width="543*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TreeView Name="MyTree">
+                <TreeView Name="MyTree" TreeViewItem.Selected="MyTree_Selected_Item">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="EToolsTreeItem" ItemsSource="{Binding eskdViews}">
                             <StackPanel Orientation="Horizontal">
